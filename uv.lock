@@ -11,6 +11,12 @@ members = [
 name = "uv-git-workspace-in-root"
 version = "0.1.0"
 source = { editable = "." }
+dependencies = [
+    { name = "workspace-member-in-subdir" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "workspace-member-in-subdir", editable = "workspace-member-in-subdir" }]
 
 [[package]]
 name = "workspace-member-in-subdir"

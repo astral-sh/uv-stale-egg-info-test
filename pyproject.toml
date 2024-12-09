@@ -7,12 +7,12 @@ authors = [
   { name = "konstin", email = "konstin@mailbox.org" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["workspace-member-in-subdir"]
 
-[tool.uv.workspace]
-members = ["workspace-member-in-subdir"]
+[tool.uv.sources]
+uv-git-workspace-in-root = { workspace = true }
+workspace-member-in-subdir = { editable = true, path = "workspace-member-in-subdir" }
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
