@@ -1,23 +1,25 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=64"]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
 
 [project]
-name = "workspace-in-root"
-version = "0.1.0"
-description = "Add your description here"
 authors = [
-  {name = "konstin", email = "konstin@mailbox.org"}
+    {email = "konstin@mailbox.org", name = "konstin"},
 ]
-requires-python = ">=3.12"
 dependencies = ["workspace-member"]
+dynamic = ["version"]
+name = "workspace-with-root-dependency-test"
+requires-python = ">=3.12"
 
 [tool.setuptools]
-packages = ["workspace_in_root"]
+packages = ["workspace_with_root_dependency_test"]
 
 [tool.setuptools.package-dir]
-workspace_in_root = "src"
+workspace_with_root_dependency_test = "src"
+
+[tool.setuptools_scm]
+version_file = "src/version.py"
 
 [tool.uv.sources]
-workspace-in-root = {workspace = true}
 workspace-member = {editable = true, path = "workspacemember"}
+workspace-with-root-dependency-test = {workspace = true}

@@ -1,0 +1,5 @@
+.venv
+*.egg-info/
+
+# Version files made by setuptools_scm
+**/version.py
