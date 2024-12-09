@@ -1,18 +1,23 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64"]
+
 [project]
-name = "uv-git-workspace-in-root"
+name = "workspace-in-root"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 authors = [
-  { name = "konstin", email = "konstin@mailbox.org" }
+  {name = "konstin", email = "konstin@mailbox.org"}
 ]
 requires-python = ">=3.12"
-dependencies = ["workspace-member-in-subdir"]
+dependencies = ["workspace-member"]
+
+[tool.setuptools]
+packages = ["workspace_in_root"]
+
+[tool.setuptools.package-dir]
+workspace_in_root = "src"
 
 [tool.uv.sources]
-uv-git-workspace-in-root = { workspace = true }
-workspace-member-in-subdir = { editable = true, path = "workspace-member-in-subdir" }
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+workspace-in-root = {workspace = true}
+workspace-member = {editable = true, path = "workspacemember"}

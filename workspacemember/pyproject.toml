@@ -1,0 +1,17 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64"]
+
+[project]
+name = "workspace-member"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+  {name = "konstin", email = "konstin@mailbox.org"}
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["workspacemember*"]
+where = [".."]
