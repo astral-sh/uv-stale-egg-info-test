@@ -1,24 +1,19 @@
 [project]
-name = "root"
+name = "member"
 dynamic = ["version"]
 authors = [
     { name = "Charlie Marsh", email = "charlie@astral.sh" }
 ]
-dependencies = ["member"]
+dependencies = ["setuptools"]
 requires-python = ">=3.12"
 
-[tool.setuptools]
-packages = ["root"]
-
-[tool.setuptools.package-dir]
-root = "src"
+[tool.setuptools.packages.find]
+include = ["member*"]
+where = [".."]
 
 [tool.setuptools_scm]
-version_file = "src/version.py"
-
-[tool.uv.sources]
-member = { editable = true, path = "member" }
-root = { workspace = true }
+root = ".."
+version_file = "version.py"
 
 [build-system]
 build-backend = "setuptools.build_meta"
